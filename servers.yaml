@@ -4,7 +4,7 @@
 #
 defaults:
   domain_name:     example.com
-  cpucount:         1
+  cpucount:         4
   box:              enterprisemodules/ol-7.7-x86_64-nocm
   virtualboxorafix: enable
 #
