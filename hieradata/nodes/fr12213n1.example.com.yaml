@@ -1,11 +1,23 @@
 ---
-
 role: role::fusion::admin_server
 
 wls_profile::domain_name:                                         forms
 wls_profile::install_type:                                        forms
 wls_profile::basic_domain::wls_domain::template_name:             forms
 
+wls_profile::basic_domain::wls_domain::repository_prefix:         fr12213
+wls_profile::weblogic_version:                                    12213
+wls_profile::weblogic::wls_software::file_name:                   fmw_12.2.1.3.0_infrastructure.jar
+wls_profile::weblogic::fmw_software::file_name:   
+  - fmw_12.2.1.3.0_fr_linux64_Disk1_1of2.zip
+  - fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip
+
+#
+# Use newer JDK version for this machine
+#
+wls_profile::java_version:                                         8u161
+wls_profile::java_full_version:                                    jdk1.8.0_161
+wls_profile::jdk_home:                                             /usr/java/jdk1.8.0_161
 
 wls_profile::servers:
   fr12213n1.example.com:
@@ -16,16 +28,4 @@ wls_profile::servers:
     machine_name:     fr12213n2.example.com
     listenaddress:    fr12213n2.example.com
     server_arguments: []
-
-wls_profile::basic_domain::wls_domain::repository_prefix:         fr12213
-wls_profile::weblogic_version:                                    12213
-wls_profile::weblogic::wls_software::file_name:                    fmw_12.2.1.3.0_infrastructure.jar
-wls_profile::weblogic::fmw_software::file_name:   
-  - fmw_12.2.1.3.0_fr_linux64_Disk1_1of2.zip
-  - fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip
-#
-# Use newer JDK version for this machine
-#
-wls_profile::java_version:                                         8u161
-wls_profile::java_full_version:                                    jdk1.8.0_161
-wls_profile::jdk_home:                                             /usr/java/jdk1.8.0_161
+...
