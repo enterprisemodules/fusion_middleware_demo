@@ -5,7 +5,6 @@ wls_profile::domain_name:                                         forms
 wls_profile::install_type:                                        forms
 wls_profile::basic_domain::wls_domain::template_name:             forms
 
-wls_profile::basic_domain::wls_domain::repository_prefix:         fr12214
 wls_profile::weblogic_version:                                    12214
 wls_profile::weblogic::wls_software::file_name:                   fmw_12.2.1.4.0_infrastructure.jar
 wls_profile::weblogic::fmw_software::file_name:
