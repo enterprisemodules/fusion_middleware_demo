@@ -4,8 +4,8 @@
 #
 defaults:
   domain_name:     example.com
-  cpucount:         1
-  box:              enterprisemodules/centos-7.3-x86_64-nocm
+  cpucount:         4
+  box:              enterprisemodules/ol-7.7-x86_64-nocm
   virtualboxorafix: enable
 #
 # The default settings for all ML nodes

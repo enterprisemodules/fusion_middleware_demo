@@ -29,9 +29,10 @@ forms_12213_demo_check:
     - cp ~/software/fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip modules/software/files
     - cp ~/software/jce_policy-8.zip modules/software/files
   script:
-    - vagrant up ml-fr12213n1
+    - vagrant up ml-fr12213n1 v
+    - vagrant up ml-fr12213n2
   after_script:
-    - vagrant destroy ml-fr12213n1 --force
+    - vagrant destroy ml-fr12213n1 ml-fr12213n2 --force
 
 forms_12214_demo_check:
   extends: .demo_check
@@ -44,8 +45,9 @@ forms_12214_demo_check:
     - cp ~/software/jce_policy-8.zip modules/software/files
   script:
     - vagrant up ml-fr12214n1
+    - vagrant up ml-fr12214n2
   after_script:
-    - vagrant destroy ml-fr12214n1 --force
+    - vagrant destroy ml-fr12214n1 ml-fr12214n2 --force
       
 
 soa_12213_demo_check:
