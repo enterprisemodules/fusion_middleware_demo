@@ -13,4 +13,5 @@ easy_type::generate_password_mode:                                  development
 wls_profile::weblogic_password:                                     'EMRul3z#'
 wls_profile::basic_domain::wls_domain::weblogic_password:           'EMRul3z#'
 wls_profile::node::copy_domain::weblogic_password:                  'EMRul3z#'
+wls_profile::basic_domain::wls_domain::nodemanager_wait:            300
 ...
