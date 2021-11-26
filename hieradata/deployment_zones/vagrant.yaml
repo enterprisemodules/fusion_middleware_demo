@@ -5,22 +5,70 @@ profile::base::hosts::list:
       - wlsmaster
       - puppet
   rcudb.example.com:
-    ip: 10.10.10.20
+    ip:        192.168.56.20
     host_aliases:
       - rcudb
+  adf12213n1.example.com:
+    ip:        192.168.56.30
+    host_aliases:
+      - adf12213n1
+  adf12213n2.example.com:
+    ip:        192.168.56.31
+    host_aliases:
+      - adf12213n2
+  adf12214n1.example.com:
+    ip:        192.168.56.32
+    host_aliases:
+      - adf12214n1
+  adf12214n2.example.com:
+    ip:        192.168.56.33
+    host_aliases:
+      - adf12214n2
+  fr12213n1.example.com:
+    ip:        192.168.56.34
+    host_aliases:
+      - fr12213n1
+  fr12213n2.example.com:
+    ip:        192.168.56.35
+    host_aliases:
+      - fr12213n2
+  fr12214n1.example.com:
+    ip:        192.168.56.36
+    host_aliases:
+      - fr12214n1
+  fr12214n2.example.com:
+    ip:        192.168.56.37
+    host_aliases:
+      - fr12214n2
   soa12213n1.example.com:
-    ip: 10.10.10.30
+    ip:        192.168.56.38
     host_aliases:
       - soa12213n1
   soa12213n2.example.com:
-    ip: 10.10.10.31
+    ip:        192.168.56.39
     host_aliases:
       - soa12213n2
   soa12214n1.example.com:
-    ip: 10.10.10.32
+    ip:        192.168.56.40
     host_aliases:
       - soa12214n1
   soa12214n2.example.com:
-    ip: 10.10.10.33
+    ip:        192.168.56.41
     host_aliases:
       - soa12214n2
+  osb12213n1.example.com:
+    ip:        192.168.56.42
+    host_aliases:
+      - osb12213n1
+  osb12213n2.example.com:
+    ip:        192.168.56.43
+    host_aliases:
+      - osb12213n2
+  osb12214n1.example.com:
+    ip:        192.168.56.44
+    host_aliases:
+      - osb12214n1
+  osb12214n2.example.com:
+    ip:        192.168.56.45
+    host_aliases:
+      - osb12214n2
