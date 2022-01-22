@@ -63,7 +63,7 @@ ml-adf12214n2:
   public_ip:        '192.168.56.33'
   software_files:
     - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip
+    - fmw_12.2.1.4.0_infrastructure.jar
     - jce_policy-8.zip
 
 ml-fr12213n1:
@@ -202,7 +202,7 @@ pe-adf12214n2:
   public_ip:        '192.168.56.33'
   software_files:
     - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip
+    - fmw_12.2.1.4.0_infrastructure.jar
     - jce_policy-8.zip
 
 pe-fr12213n1:

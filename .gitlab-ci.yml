@@ -105,7 +105,32 @@ osb_12214_demo_check:
     - vagrant up ml-osb12214n2
   after_script:
     - vagrant destroy ml-osb12214n1 ml-osb12214n2 --force
-    
+
+adf_12213_demo_check:
+  extends: .demo_check
+  before_script:
+    - mkdir -p modules/software/files
+    - cp ~/software/jdk-8u161-linux-x64.tar.gz modules/software/files
+    - cp ~/software/fmw_12.2.1.3.0_infrastructure.jar modules/software/files
+    - cp ~/software/jce_policy-8.zip modules/software/files
+  script:
+    - vagrant up ml-adf12213n1
+    - vagrant up ml-adf12213n2
+  after_script:
+    - vagrant destroy ml-adf12213n1 ml-adf12213n2  --force
+
+adf_12214_demo_check:
+  extends: .demo_check
+  before_script:
+    - mkdir -p modules/software/files
+    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
+    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
+    - cp ~/software/jce_policy-8.zip modules/software/files
+  script:
+    - vagrant up ml-adf12214n1
+    - vagrant up ml-adf12214n2
+  after_script:
+    - vagrant destroy ml-adf12214n1 ml-adf12214n2 --force
 
 teardown RCU:
   stage: acceptance teardown
