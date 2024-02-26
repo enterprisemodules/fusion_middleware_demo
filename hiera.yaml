@@ -6,7 +6,9 @@ defaults:  # Used for any hierarchy level that omits these keys.
 
 hierarchy:
   - name: "Per-node data"                   # Human-readable name.
-    path: "nodes/%{trusted.certname}.yaml"  # File path, relative to datadir.
+    paths:
+      - "nodes/%{networking.hostname}.yaml"  # File path, relative to datadir.
+      - "nodes/%{networking.fqdn}.yaml"
 
   - name: "Deployment Zone" # Uses custom facts.
     path: "deployment_zones/%{::deployment_zone}.yaml"
