@@ -1,0 +1,23 @@
+---
+role: role::fusion::node
+
+wls_profile::domain_name:                                         forms
+wls_profile::install_type:                                        forms
+wls_profile::basic_domain::wls_domain::template_name:             forms
+
+wls_profile::weblogic_version:                                    122119
+wls_profile::weblogic::wls_software::file_name:                   fmw_12.2.1.4.0_infrastructure.jar
+
+wls_profile::weblogic::fmw_software::version:                     122119
+wls_profile::weblogic::fmw_software::file_name:   
+  - V1033708-01.zip
+#
+# Use newer JDK version for this machine
+#
+wls_profile::java_version:                                         8u231
+wls_profile::java_full_version:                                    jdk1.8.0_231
+wls_profile::jdk_home:                                             /usr/java/jdk1.8.0_231
+wls_profile::weblogic::java_software::cryptography_extension_file: ~
+
+wls_profile::adminserver_address:                                  fr12219n1.example.com
+...

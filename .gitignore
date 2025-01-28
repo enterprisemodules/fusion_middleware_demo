@@ -36,3 +36,6 @@ modules/timezone
 screenlog.0
 
 /modules/augeasproviders_grub/
+/modules/systemd
+/.DS_Store
+/modules/.DS_Store
