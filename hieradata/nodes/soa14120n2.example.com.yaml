@@ -1,0 +1,29 @@
+---
+role: role::fusion::node
+
+wls_profile::domain_name:                                         soa
+wls_profile::install_type:                                        soa
+wls_profile::basic_domain::wls_domain::template_name:             soa
+
+wls_profile::weblogic_version:                                    14120
+wls_profile::weblogic::wls_software::file_name:                   fmw_14.1.2.0.0_infrastructure.jar
+
+wls_profile::weblogic::fmw_software::version:                     14120
+wls_profile::weblogic::fmw_software::file_name:   
+  - fmw_14.1.2.0.0_soa.jar.zip
+#
+# Use newer JDK version for this machine
+#
+wls_profile::java_version:                                         21u05
+wls_profile::java_full_version:                                    jdk21.0.5
+wls_profile::jdk_home:                                             /usr/java/jdk-21.0.5
+wls_profile::weblogic::java_software::cryptography_extension_file: ~
+wls_profile::weblogic::java_software::urandom_fix:                  false
+wls_profile::weblogic::java_software::rsa_key_size_fix:             false
+
+wls_profile::middleware_home:     /opt/oracle/middleware14
+wls_profile::weblogic_home:       /opt/oracle/middleware14/wlserver
+
+
+wls_profile::adminserver_address:                                  soa14120n1.example.com
+...

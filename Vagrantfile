@@ -135,7 +135,7 @@ def masterless_setup(config, server, srv, hostname)
                                 run: 'always' } } if server['custom_facts']
     @provisioners << { shell: { inline: hosts_file(servers, 'linux') } }
     @provisioners << { shell: { inline: 'bash /vagrant/vm-scripts/install_puppet.sh' } }
-    @provisioners << { shell: { inline: 'bash /vagrant/vm-scripts/setup_puppet.sh' } }
+    @provisioners << { shell: { inline: 'bash /vagrant/vm-scripts/setup_puppet.sh', env: { "CI_TOKEN" => ENV['CI_JOB_TOKEN'] } } }
     @provisioners << { puppet: { manifests_path: ["vm", "/vagrant/manifests"],
                                  manifest_file: "site.pp",
                                  options: "--test" } }

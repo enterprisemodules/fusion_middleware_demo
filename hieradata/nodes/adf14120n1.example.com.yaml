@@ -1,0 +1,36 @@
+---
+role: role::fusion::admin_server
+
+wls_profile::domain_name:                                         adf
+wls_profile::install_type:                                        adf
+wls_profile::basic_domain::wls_domain::template_name:             adf
+
+wls_profile::weblogic_version:                                    14120
+wls_profile::weblogic::wls_software::file_name:                   fmw_14.1.2.0.0_infrastructure.jar
+
+#
+# Use newer JDK version for this machine
+#
+wls_profile::java_version:                                         21u05
+wls_profile::java_full_version:                                    jdk21.0.5
+wls_profile::jdk_home:                                             /usr/java/jdk-21.0.5
+wls_profile::weblogic::java_software::cryptography_extension_file: ~
+wls_profile::weblogic::java_software::urandom_fix:                  false
+wls_profile::weblogic::java_software::rsa_key_size_fix:             false
+
+wls_profile::middleware_home:     /opt/oracle/middleware14
+wls_profile::weblogic_home:       /opt/oracle/middleware14/wlserver
+
+wls_profile::basic_domain::wls_domain::repository_prefix:          adf14120
+
+wls_profile::servers:
+  adf14120n1.example.com:
+    machine_name:     adf14120n1.example.com
+    listenaddress:    adf14120n1.example.com
+    server_arguments: []
+  adf14120n2.example.com:
+    machine_name:     adf14120n2.example.com
+    listenaddress:    adf14120n2.example.com
+    server_arguments: []
+...
+
