@@ -6,15 +6,22 @@ include:
   - project: 'enterprisemodules/gitlab_ci'
     file: 'gitlab-ci.yml'
 
+cache:
+  key: "${CI_COMMIT_REF_SLUG}-vagrant"
+  paths:
+    - .vagrant/
+  policy: pull-push
+  when: always
+
+
 setup RCU:
   stage: acceptance setup
   tags:
     - demo_check
   before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/LINUX.X64_193000_db_home.zip modules/software/files
+    - vagrant prepare ml-rcudb
   script:
-  - vagrant up ml-rcudb
+    - vagrant up ml-rcudb
   only:
     refs:
       - master
@@ -35,13 +42,8 @@ setup RCU:
 
 forms_12214_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_fr_linux64_Disk1_1of2.zip modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip modules/software/files
-    - cp ~/software/jce_policy-8.zip modules/software/files
+  variables:
+    server:  ml-fr12214n1
   script:
     - vagrant up ml-fr12214n1
     - vagrant up ml-fr12214n2
@@ -50,11 +52,8 @@ forms_12214_demo_check:
 
 forms_122119_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
-    - cp ~/software/V1033708-01.zip modules/software/files
+  variables:
+    server:  ml-fr122119n1
   script:
     - vagrant up ml-fr122119n1
     - vagrant up ml-fr122119n2
@@ -63,11 +62,8 @@ forms_122119_demo_check:
 
 forms_14120_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-21u05-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_infrastructure.jar modules/software/files
-    - cp ~/software/V1045121-01.zip modules/software/files
+  variables:
+    server:  ml-fr14120n1
   script:
     - vagrant up ml-fr14120n1
     - vagrant up ml-fr14120n2
@@ -90,12 +86,8 @@ forms_14120_demo_check:
 
 soa_12214_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_soa.jar.zip modules/software/files
-    - cp ~/software/jce_policy-8.zip modules/software/files
+  variables:
+    server:  ml-soa12214n1
   script:
     - vagrant up ml-soa12214n1
     - vagrant up ml-soa12214n2
@@ -104,11 +96,8 @@ soa_12214_demo_check:
 
 soa_14120_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-21u05-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_infrastructure.jar modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_soa.jar.zip modules/software/files
+  variables:
+    server:  ml-soa14120n1
   script:
     - vagrant up ml-soa14120n1
     - vagrant up ml-soa14120n2
@@ -130,12 +119,8 @@ soa_14120_demo_check:
 
 osb_12214_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_osb.jar.zip modules/software/files
-    - cp ~/software/jce_policy-8.zip modules/software/files
+  variables:
+    server:  ml-osb12214n1
   script:
     - vagrant up ml-osb12214n1
     - vagrant up ml-osb12214n2
@@ -144,11 +129,8 @@ osb_12214_demo_check:
 
 osb_14120_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-21u05-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_infrastructure.jar modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_osb.jar.zip modules/software/files
+  variables:
+    server:  ml-osb14120n1
   script:
     - vagrant up ml-osb14120n1
     - vagrant up ml-osb14120n2
@@ -169,11 +151,8 @@ osb_14120_demo_check:
 
 adf_12214_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-8u231-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_12.2.1.4.0_infrastructure.jar modules/software/files
-    - cp ~/software/jce_policy-8.zip modules/software/files
+  variables:
+    server:  ml-adf12214n1
   script:
     - vagrant up ml-adf12214n1
     - vagrant up ml-adf12214n2
@@ -182,10 +161,8 @@ adf_12214_demo_check:
 
 adf_14120_demo_check:
   extends: .demo_check
-  before_script:
-    - mkdir -p modules/software/files
-    - cp ~/software/jdk-21u05-linux-x64.tar.gz modules/software/files
-    - cp ~/software/fmw_14.1.2.0.0_infrastructure.jar modules/software/files
+  variables:
+    server:  ml-adf14120n1
   script:
     - vagrant up ml-adf14120n1
     - vagrant up ml-adf14120n2
@@ -197,8 +174,7 @@ teardown RCU:
   tags:
     - demo_check
   script:
-  - vboxmanage controlvm  ml-rcudb poweroff
-  - vboxmanage unregistervm ml-rcudb --delete
+    - vagrant destroy ml-rcudb --force
   only:
     refs:
       - master

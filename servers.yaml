@@ -3,84 +3,68 @@
 # The default settings for all nodes
 #
 defaults:
-  domain_name:     example.com
-  cpucount:         4
-  box:              enterprisemodules/ol-7.7-x86_64-nocm
-  virtualboxorafix: enable
-#
-# The default settings for all ML nodes
-#
-ml-defaults:
-  type:             masterless
-#
-# The default settings for all PE nodes
-#
-pe-defaults:
-  type:             pe-agent
-  puppet_master:    wlsmaster
+  domain_name:      example.com
+  ip_start_address: 192.168.56.120
+  prefix:           fm # Fusion middleware
+  cpucount:         1
+  #
+  # Chose one of the boxes you like
+  #
+  # box:              enterprisemodules/ol-8.1-x86_64-nocm    # OracleLinux 8.1
+  # box:              enterprisemodules/ol-9.0-x86_64-nocm    # Oracle Linux 9.0
+  # box:              enterprisemodules/al-9.0-x86_64-nocm    # AlmaLinux 9.0
+  # box:              enterprisemodules/rl-9.0-x86_64-nocm    # RockyLinux 9.0
+  box:                enterprisemodules/ol-7.7-x86_64-nocm
 
 #
 # The settings for the Puppet Enterprise Server
-#  
-pe-wlsmaster:
-  public_ip:       '192.168.56.10'
-  cpucount:         2
-  ram:              3072
-  type:             pe-master
-  puppet_installer: puppet-enterprise-2019.1.0-el-7-x86_64/puppet-enterprise-installer
- 
 #
-# All masterless nodes
+pe-puppetserver:
+  puppet_installer: puppet-enterprise-2019.5.0-el-8-x86_64/puppet-enterprise-installer
 #
-ml-rcudb:
-  public_ip:        '192.168.56.20'
+# All  nodes
+#
+rcudb:
   software_files:
     - LINUX.X64_193000_db_home.zip
 
-# ml-adf12213n1:
-#   public_ip:        '192.168.56.30'
+# adf12213n1:
 #   software_files:
 #     - jdk-8u161-linux-x64.tar.gz
 #     - fmw_12.2.1.3.0_infrastructure.jar
 #     - jce_policy-8.zip
 
-# ml-adf12213n2:
-#   public_ip:        '192.168.56.31'
+# adf12213n2:
 #   software_files:
 #     - jdk-8u161-linux-x64.tar.gz
 #     - fmw_12.2.1.3.0_infrastructure.jar
 #     - jce_policy-8.zip
 
-ml-adf12214n1:
-  public_ip:        '192.168.56.32'
+adf12214n1:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - jce_policy-8.zip
 
-ml-adf12214n2:
-  public_ip:        '192.168.56.33'
+adf12214n2:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - jce_policy-8.zip
 
-ml-adf14120n1:
+adf14120n1:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.21'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
 
-ml-adf14120n2:
+adf14120n2:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.22'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
 
-# ml-fr12213n1:
-#   public_ip:        '192.168.56.36'
+# fr12213n1:
 #   software_files:
 #     - jdk-8u161-linux-x64.tar.gz
 #     - fmw_12.2.1.3.0_fr_linux64_Disk1_1of2.zip
@@ -88,8 +72,7 @@ ml-adf14120n2:
 #     - fmw_12.2.1.3.0_infrastructure.jar
 #     - jce_policy-8.zip
 
-# ml-fr12213n2:
-#   public_ip:        '192.168.56.37'
+# fr12213n2:
 #   software_files:
 #     - jdk-8u161-linux-x64.tar.gz
 #     - fmw_12.2.1.3.0_infrastructure.jar
@@ -97,8 +80,7 @@ ml-adf14120n2:
 #     - fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip
 #     - jce_policy-8.zip
 
-ml-fr12214n1:
-  public_ip:        '192.168.56.38'
+fr12214n1:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_fr_linux64_Disk1_1of2.zip
@@ -106,8 +88,7 @@ ml-fr12214n1:
     - fmw_12.2.1.4.0_infrastructure.jar
     - jce_policy-8.zip
 
-ml-fr12214n2:
-  public_ip:        '192.168.56.39'
+fr12214n2:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
@@ -115,334 +96,112 @@ ml-fr12214n2:
     - fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip
     - jce_policy-8.zip
 
-ml-fr122119n1:
-  public_ip:        '192.168.56.25'
+fr122119n1:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - V1033708-01.zip
 
-ml-fr122119n2:
-  public_ip:        '192.168.56.26'
+fr122119n2:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - V1033708-01.zip
 
-ml-fr14120n1:
+fr14120n1:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.23'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
     - V1045121-01.zip
 
-ml-fr14120n2:
+fr14120n2:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.24'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
     - V1045121-01.zip
 
-ml-soa12213n1:
-  public_ip:        '192.168.56.44'
+soa12213n1:
   software_files:
     - jdk-8u161-linux-x64.tar.gz
     - fmw_12.2.1.3.0_infrastructure.jar
     - fmw_12.2.1.3.0_soa.jar.zip
     - jce_policy-8.zip
 
-ml-soa12213n2:
-  public_ip:        '192.168.56.45'
+soa12213n2:
   software_files:
     - jdk-8u161-linux-x64.tar.gz
     - fmw_12.2.1.3.0_infrastructure.jar
     - fmw_12.2.1.3.0_soa.jar.zip
     - jce_policy-8.zip
 
-ml-soa12214n1:
+soa12214n1:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.46'
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - fmw_12.2.1.4.0_soa.jar.zip
     - jce_policy-8.zip
 
-ml-soa12214n2:
-  public_ip:        '192.168.56.47'
+soa12214n2:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - fmw_12.2.1.4.0_soa.jar.zip
     - jce_policy-8.zip
 
-ml-soa14120n1:
+soa14120n1:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.27'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
     - fmw_14.1.2.0.0_soa.jar.zip
 
-ml-soa14120n2:
+soa14120n2:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.28'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
     - fmw_14.1.2.0.0_soa.jar.zip
 
-ml-osb12213n1:
-  public_ip:        '192.168.56.48'
+osb12213n1:
   software_files:
     - jdk-8u161-linux-x64.tar.gz
     - fmw_12.2.1.3.0_infrastructure.jar
     - fmw_12.2.1.3.0_osb.jar.zip
     - jce_policy-8.zip
 
-ml-osb12213n2:
-  public_ip:        '192.168.56.49'
+osb12213n2:
   software_files:
     - jdk-8u161-linux-x64.tar.gz
     - fmw_12.2.1.3.0_infrastructure.jar
     - fmw_12.2.1.3.0_osb.jar.zip
     - jce_policy-8.zip
 
-ml-osb12214n1:
-  public_ip:        '192.168.56.50'
+osb12214n1:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - fmw_12.2.1.4.0_osb.jar.zip
     - jce_policy-8.zip
 
-ml-osb12214n2:
-  public_ip:        '192.168.56.51'
+osb12214n2:
   software_files:
     - jdk-8u231-linux-x64.tar.gz
     - fmw_12.2.1.4.0_infrastructure.jar
     - fmw_12.2.1.4.0_osb.jar.zip
     - jce_policy-8.zip
     
-ml-osb14120n1:
+osb14120n1:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.29'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
     - fmw_14.1.2.0.0_osb.jar.zip
 
-ml-osb14120n2:
+osb14120n2:
   box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.30'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - fmw_14.1.2.0.0_osb.jar.zip
-
-# pe-adf12213n1:
-#   public_ip:        '192.168.56.30'
-#   software_files:
-#     - jdk-8u161-linux-x64.tar.gz
-#     - fmw_12.2.1.3.0_infrastructure.jar
-#     - jce_policy-8.zip
-
-# pe-adf12213n2:
-#   public_ip:        '192.168.56.31'
-#   software_files:
-#     - jdk-8u161-linux-x64.tar.gz
-#     - fmw_12.2.1.3.0_infrastructure.jar
-#     - jce_policy-8.zip
-
-pe-adf12214n1:
-  public_ip:        '192.168.56.32'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - jce_policy-8.zip
-
-pe-adf12214n2:
-  public_ip:        '192.168.56.33'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - jce_policy-8.zip
-
-pe-adf14120n1:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.21'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-
-pe-adf14120n2:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.22'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-
-pe-fr12213n1:
-  public_ip:        '192.168.56.36'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_fr_linux64_Disk1_1of2.zip
-    - fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - jce_policy-8.zip
-
-pe-fr12213n2:
-  public_ip:        '192.168.56.37'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - fmw_12.2.1.3.0_fr_linux64_Disk1_1of2.zip
-    - fmw_12.2.1.3.0_fr_linux64_Disk1_2of2.zip
-    - jce_policy-8.zip
-
-pe-fr12214n1:
-  public_ip:        '192.168.56.38'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_1of2.zip
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - jce_policy-8.zip
-
-pe-fr12214n2:
-  public_ip:        '192.168.56.39'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_1of2.zip
-    - fmw_12.2.1.4.0_fr_linux64_Disk1_2of2.zip
-    - jce_policy-8.zip
-
-pe-fr122119n1:
-  public_ip:        '192.168.56.25'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.19.0_fr_linux64.bin
-
-pe-fr122119n2:
-  public_ip:        '192.168.56.26'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.19.0_fr_linux64.bin
-
-pe-fr14120n1:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.23'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - V1045121-01.zip
-
-pe-fr14120n2:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.24'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - V1045121-01.zip
-
-pe-soa12213n1:
-  public_ip:        '192.168.56.44'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - fmw_12.2.1.3.0_soa.jar.zip
-    - jce_policy-8.zip
-
-pe-soa12213n2:
-  public_ip:        '192.168.56.45'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - fmw_12.2.1.3.0_soa.jar.zip
-    - jce_policy-8.zip
-
-pe-soa12214n1:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.46'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.4.0_soa.jar.zip
-    - jce_policy-8.zip
-
-pe-soa12214n2:
-  public_ip:        '192.168.56.47'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.4.0_soa.jar.zip
-    - jce_policy-8.zip
-
-pe-soa14120n1:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.27'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - fmw_14.1.2.0.0_soa.jar.zip
-
-pe-soa14120n2:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.28'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - fmw_14.1.2.0.0_soa.jar.zip
-
-
-pe-osb12213n1:
-  public_ip:        '192.168.56.48'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - fmw_12.2.1.3.0_osb.jar.zip
-    - jce_policy-8.zip
-
-pe-osb12213n2:
-  public_ip:        '192.168.56.49'
-  software_files:
-    - jdk-8u161-linux-x64.tar.gz
-    - fmw_12.2.1.3.0_infrastructure.jar
-    - fmw_12.2.1.3.0_osb.jar.zip
-    - jce_policy-8.zip
-
-pe-osb12214n1:
-  public_ip:        '192.168.56.50'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.4.0_osb.jar.zip
-    - jce_policy-8.zip
-
-pe-osb12214n2:
-  public_ip:        '192.168.56.51'
-  software_files:
-    - jdk-8u231-linux-x64.tar.gz
-    - fmw_12.2.1.4.0_infrastructure.jar
-    - fmw_12.2.1.4.0_osb.jar.zip
-    - jce_policy-8.zip
-    
-pe-osb14120n1:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.29'
-  software_files:
-    - jdk-21u05-linux-x64.tar.gz
-    - fmw_14.1.2.0.0_infrastructure.jar
-    - fmw_14.1.2.0.0_osb.jar.zip
-
-pe-osb14120n2:
-  box:              bento/oraclelinux-9
-  public_ip:        '192.168.56.30'
   software_files:
     - jdk-21u05-linux-x64.tar.gz
     - fmw_14.1.2.0.0_infrastructure.jar
