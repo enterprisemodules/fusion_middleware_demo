@@ -20,6 +20,7 @@ setup RCU:
     - demo_check
   before_script:
     - vagrant destroy -f ml-rcudb || true
+    - vagrant destroy -f ml-fmrcudb || true
     - vagrant prepare ml-rcudb
   script:
     - vagrant up ml-rcudb
