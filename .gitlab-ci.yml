@@ -19,6 +19,7 @@ setup RCU:
   tags:
     - demo_check
   before_script:
+    - vagrant destroy -f ml-rcudb || true
     - vagrant prepare ml-rcudb
   script:
     - vagrant up ml-rcudb
