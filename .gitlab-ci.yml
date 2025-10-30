@@ -48,6 +48,7 @@ forms_12214_demo_check:
     server:  ml-fr12214n1
   before_script:
     - vagrant destroy ml-fr12214n1 ml-fr12214n2 --force || true
+    - vagrant prepare ml-fr12214n1
   script:
     - vagrant up ml-fr12214n1
     - vagrant up ml-fr12214n2
@@ -60,6 +61,7 @@ forms_122119_demo_check:
     server:  ml-fr122119n1
   before_script:
     - vagrant destroy ml-fr122119n1 ml-fr122119n2 --force || true
+    - vagrant prepare ml-fr122119n1
   script:
     - vagrant up ml-fr122119n1
     - vagrant up ml-fr122119n2
@@ -72,6 +74,7 @@ forms_14120_demo_check:
     server:  ml-fr14120n1
   before_script:
     - vagrant destroy ml-fr14120n1 ml-fr14120n2 --force || true
+    - vagrant prepare ml-fr14120n1
   script:
     - vagrant up ml-fr14120n1
     - vagrant up ml-fr14120n2
@@ -98,6 +101,7 @@ soa_12214_demo_check:
     server:  ml-soa12214n1
   before_script:
     - vagrant destroy ml-soa12214n1 ml-soa12214n2 --force || true
+    - vagrant prepare ml-soa12214n1
   script:
     - vagrant up ml-soa12214n1
     - vagrant up ml-soa12214n2
@@ -110,6 +114,7 @@ soa_14120_demo_check:
     server:  ml-soa14120n1
   before_script:
     - vagrant destroy ml-soa14120n1 ml-soa14120n2 --force || true
+    - vagrant prepare ml-soa14120n1
   script:
     - vagrant up ml-soa14120n1
     - vagrant up ml-soa14120n2
@@ -135,6 +140,7 @@ osb_12214_demo_check:
     server:  ml-osb12214n1
   before_script:
     - vagrant destroy ml-osb12214n1 ml-osb12214n2 --force || true
+    - vagrant prepare ml-osb12214n1
   script:
     - vagrant up ml-osb12214n1
     - vagrant up ml-osb12214n2
@@ -147,6 +153,7 @@ osb_14120_demo_check:
     server:  ml-osb14120n1
   before_script:
     - vagrant destroy ml-osb14120n1 ml-osb14120n2 --force || true
+    - vagrant prepare ml-osb14120n1
   script:
     - vagrant up ml-osb14120n1
     - vagrant up ml-osb14120n2
@@ -171,6 +178,7 @@ adf_12214_demo_check:
     server:  ml-adf12214n1
   before_script:
     - vagrant destroy ml-adf12214n1 ml-adf12214n2 --force || true
+    - vagrant prepare ml-adf12214n1
   script:
     - vagrant up ml-adf12214n1
     - vagrant up ml-adf12214n2
@@ -183,6 +191,7 @@ adf_14120_demo_check:
     server:  ml-adf14120n1
   before_script:
     - vagrant destroy ml-adf14120n1 ml-adf14120n2 --force || true
+    - vagrant prepare ml-adf14120n1
   script:
     - vagrant up ml-adf14120n1
     - vagrant up ml-adf14120n2
