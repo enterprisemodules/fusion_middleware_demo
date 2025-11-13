@@ -1,4 +1,5 @@
-class profile::db(
+# TODO: Docs
+class profile::db (
   $dbname,
   $base,
   $home,
@@ -6,5 +7,5 @@ class profile::db(
   $os_group,
   $system_password,
   $sys_password,
-){
+) {
 }
