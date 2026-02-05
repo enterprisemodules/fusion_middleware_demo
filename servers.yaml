@@ -192,7 +192,7 @@ osb12214n2:
     - fmw_12.2.1.4.0_infrastructure.jar
     - fmw_12.2.1.4.0_osb.jar.zip
     - jce_policy-8.zip
-    
+
 osb14120n1:
   box:              bento/oraclelinux-9
   software_files:

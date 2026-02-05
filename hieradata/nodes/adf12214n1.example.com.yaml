@@ -1,12 +1,14 @@
 ---
 role: role::fusion::admin_server
 
-wls_profile::domain_name:                                         adf
-wls_profile::install_type:                                        adf
-wls_profile::basic_domain::wls_domain::template_name:             adf
+wls_profile::weblogic::after_wls_patches:                          profile::wls::rcu_cleanup
 
-wls_profile::weblogic_version:                                    12214
-wls_profile::weblogic::wls_software::file_name:                   fmw_12.2.1.4.0_infrastructure.jar
+wls_profile::domain_name:                                          adf
+wls_profile::install_type:                                         adf
+wls_profile::basic_domain::wls_domain::template_name:              adf
+
+wls_profile::weblogic_version:                                     12214
+wls_profile::weblogic::wls_software::file_name:                    fmw_12.2.1.4.0_infrastructure.jar
 
 #
 # Use newer JDK version for this machine
